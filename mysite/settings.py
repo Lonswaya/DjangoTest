@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 	'40.114.28.122',
+	'127.0.0.1',
 ]
 
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'azure.storage.queue',
 ]
 
 MIDDLEWARE = [

@@ -3,6 +3,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.http import Http404
 from django.urls import reverse
+from azure.storage.queue import QueueService
+
+import datetime
+import base64
 
 from .models import Question
 
@@ -16,6 +20,12 @@ def index(request):
     return render(request, 'polls/index.html', context)
 
 def detail(request, question_id):
+    queue_service = QueueService(account_name='firstsep9ed1', account_key='W+XOdAGrNzjtqTjCopNYZ5wX09Rfy1MTNLGwGnza6eofPkVqXMePyC5ovA+rkd3m4nDxEJeYcY0wCEcodLxyWQ==')
+    #queue_service.create_queue('taskqueue')
+    #message = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    message = base64.b64encode(bytes(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 'utf-8'))
+    queue_service.put_message('test-python-queue', message.decode('ascii'))
+
     try:
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:

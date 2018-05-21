@@ -102,7 +102,7 @@ call :SelectPythonVersion
 
 pushd "%DEPLOYMENT_TARGET%"
 
-echo %PYTHON_RUNTIME% "%PYTHON_VER%" "%PYTHON_EXE%" "%PYTHON_ENV_MODULE%"
+echo "%PYTHON_RUNTIME%" "%PYTHON_VER%" "%PYTHON_EXE%" "%PYTHON_ENV_MODULE%"
 
 :: 3. Create virtual environment
 IF NOT EXIST "%DEPLOYMENT_TARGET%\env\azure.env.%PYTHON_RUNTIME%.txt" (

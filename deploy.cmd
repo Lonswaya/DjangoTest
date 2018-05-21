@@ -102,8 +102,6 @@ call :SelectPythonVersion
 
 pushd "%DEPLOYMENT_TARGET%"
 
-echo "%PYTHON_RUNTIME%" "%PYTHON_VER%" "%PYTHON_EXE%" "%PYTHON_ENV_MODULE%"
-
 :: 3. Create virtual environment
 IF NOT EXIST "%DEPLOYMENT_TARGET%\env\azure.env.%PYTHON_RUNTIME%.txt" (
   IF EXIST "%DEPLOYMENT_TARGET%\env" (
@@ -122,7 +120,7 @@ IF NOT EXIST "%DEPLOYMENT_TARGET%\env\azure.env.%PYTHON_RUNTIME%.txt" (
 )
 
 :: 4. Install packages
-echo Pip install requirements.
+echo Pip install requirements. "%PYTHON_RUNTIME%" "%PYTHON_VER%" "%PYTHON_EXE%" "%PYTHON_ENV_MODULE%"
 env\scripts\pip install -r requirements.txt
 IF !ERRORLEVEL! NEQ 0 goto error
 

@@ -100,6 +100,8 @@ echo Detected requirements.txt.  You can skip Python specific steps with a .skip
 :: 2. Select Python version
 call :SelectPythonVersion
 
+echo %PYTHON_RUNTIME% "%PYTHON_VER%" "%PYTHON_EXE%" "%PYTHON_ENV_MODULE%"
+
 pushd "%DEPLOYMENT_TARGET%"
 
 :: 3. Create virtual environment

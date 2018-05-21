@@ -90,7 +90,7 @@ DATABASES = {
          'HOST': 'djangotestsep.database.windows.net',
          'PORT': '',
          'OPTIONS': {
-            'driver': 'SQL Server Native Client 11.0',
+            'driver': 'SQL Server',
         },
     }
 }

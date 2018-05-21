@@ -83,8 +83,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         'ENGINE': 'sql_server.pyodbc',
+         'NAME': 'djangoTest',
+         'USER': 'djangoAdmin',
+         'PASSWORD': '$3pR0cks!',
+         'HOST': 'djangotestsep.database.windows.net',
+         'PORT': '',
+         'OPTIONS': {
+            'driver': 'SQL Server Native Client 11.0',
+        },
     }
 }
 

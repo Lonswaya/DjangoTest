@@ -1,3 +1,4 @@
+--find-links wheelhouse
 azure
 apscheduler
 wfastcgi>=3.0.0

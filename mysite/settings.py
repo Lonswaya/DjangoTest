@@ -28,12 +28,14 @@ DEBUG = True
 ALLOWED_HOSTS = [
 	'40.114.28.122',
 	'127.0.0.1',
+	'137.117.33.138',
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'azure.storage.queue',
+	'apscheduler',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +90,7 @@ DATABASES = {
          'HOST': 'djangotestsep.database.windows.net',
          'PORT': '',
          'OPTIONS': {
-            'driver': 'SQL Server Native Client 11.0',
+            'driver': 'SQL Server',
         },
     }
 }

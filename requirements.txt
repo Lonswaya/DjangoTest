@@ -1,5 +1,7 @@
-azure
+--find-links wheelhouse
+setuptools==39.0.1
+azure-storage-queue==1.1.0
 apscheduler
 wfastcgi>=3.0.0
 django>=2.0.5
-django-pyodbc-azure>=2.0.4
+django-pyodbc-azure==2.0.4

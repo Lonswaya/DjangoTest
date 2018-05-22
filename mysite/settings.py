@@ -89,9 +89,9 @@ DATABASES = {
          'USER': 'djangoAdmin',
          'PASSWORD': '$3pR0cks!',
          'HOST': 'djangotestsep.database.windows.net',
-         'PORT': '',
+         'PORT': '1433',
          'OPTIONS': {
-            'driver': 'SQL Server',
+            'driver': 'SQL Server Native Client 11.0',
         },
     }
 }

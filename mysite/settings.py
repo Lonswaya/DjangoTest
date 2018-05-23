@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import environ
+
+root = environ.Path(__file__)
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env('..\.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -83,17 +87,18 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-         'ENGINE': 'sql_server.pyodbc',
-         'NAME': 'djangoTest',
-         'USER': 'djangoAdmin',
-         'PASSWORD': '$3pR0cks!',
-         'HOST': 'djangotestsep.database.windows.net',
-         'PORT': '1433',
-         'OPTIONS': {
-            'driver': 'SQL Server Native Client 11.0',
-        },
-    }
+    'default': env.db(),
+    #'default': {
+    #     'ENGINE': 'sql_server.pyodbc',
+    #     'NAME': 'djangoTest',
+    #     'USER': 'djangoAdmin',
+    #     'PASSWORD': '$3pR0cks!',
+    #     'HOST': 'djangotestsep.database.windows.net',
+    #     'PORT': '1433',
+    #     'OPTIONS': {
+    #        'driver': 'SQL Server Native Client 11.0',
+    #    },
+    #}
 }
 
 
